@@ -13,6 +13,10 @@ export default {
         foreground: "#000000",
         green: "rgba(16, 153, 0, 0.29)"
       },
+      boxShadow: {
+        "green-hover": "0 0 60px -15px rgba(0, 0, 0, 0.5)",
+        "green": "0 0 50px -10px rgba(0, 0, 0, 0.5)",
+      },
     },
   },
   plugins: [],

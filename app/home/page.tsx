@@ -45,6 +45,7 @@ export default function Home() {
          headline={post.titulo}
          description={post.descricao}
          autor={post.autor.nome}
+         date={post._createdAt}
         />
       ))}
     </>

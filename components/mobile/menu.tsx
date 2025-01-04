@@ -57,8 +57,8 @@ const MenuLateralMobile: React.FC<MenuLateralMobileProps> = ({ menuLateral, togg
       `}
     >
       <FaBars size={25} onClick={toggleMenu} />
-      <Link href={'/home'} ><strong className='text-2xl'>Home</strong></Link>
-      <div className='flex flex-col gap-2 justify-center items-center'>
+      <Link href={'/home'} onClick={toggleMenu} ><strong className='text-2xl'>Home</strong></Link>
+      <div onClick={toggleMenu} className='flex flex-col gap-2 justify-center items-center'>
         <Image src={Logo} alt="Logo" width={100} height={100}/>
         <h1>BETA</h1>
       </div>
@@ -82,9 +82,11 @@ const SuperiorMenu: React.FC<SuperiorMenuProps> = ({ toggleMenu }) => {
     }, []);
 
     return(
-        <div className={` z-1 bg-green px-4 flex justify-between items-center fixed top-0 left-0 w-full h-16 ${isScrolled ? 'backdrop-blur-sm' : 'backdrop-blur-none'} shadow-md md:hidden`}>
+        <div className={` z-1 bg-green px-4 flex justify-between items-center fixed top-0 left-0 w-full h-16 ${isScrolled ? 'backdrop-blur-sm' : 'backdrop-blur-none'} shadow-green md:hidden`}>
         <FaBars size={25} onClick={toggleMenu}/>
-        <Image src={Logo} alt="Logo" width={100} height={100}/>
+        <Link href={'/home'}>
+          <Image src={Logo} alt="Logo" width={100} height={100}/>
+        </Link>
         <h1>
         </h1>
         </div>

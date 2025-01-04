@@ -5,6 +5,7 @@ import type { GetPostsResponse, Post } from '@/functions/datocms/types';
 import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
+import { useIsMobile } from '@/functions/auxiliares';
 
 
 function Post(){
@@ -13,6 +14,7 @@ function Post(){
   const pathname = usePathname();
   const postId = pathname.split('/').pop();
   console.log(postId);
+  const isMobile = useIsMobile();
   
   useEffect(() => {
       const fetchPosts = async () => {
@@ -41,11 +43,12 @@ function Post(){
 
   return (
     <div className='h-full w-full flex flex-col justify-center items-center'>
-      <Image src={post?.capa.url} alt={post?.titulo} width={1080} height={1080} className="w-full h-full object-cover" />
+      <Image src={post?.capa.url} alt={post?.titulo} width={1080} height={1080} className={`${isMobile ? 'w-full h-full' : 'h-[45rem] w-[45rem]'} object-cover`} />
       <h1 className=''>{post?.titulo}</h1>
       <h2>{post?.descricao}</h2>
-      <div dangerouslySetInnerHTML={{ __html: post?.textHtml }} />
+      <div className='pt-10' dangerouslySetInnerHTML={{ __html: post?.textHtml }} />
       <p className='pt-10'>{post?.autor.nome}</p>
+      <p>{post?._createdAt}</p>
     </div>
   );
 
