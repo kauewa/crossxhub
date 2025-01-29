@@ -42,7 +42,7 @@ function Post(){
     }
 
   return (
-    <div className='h-full w-full flex flex-col justify-center items-center'>
+    <div className={`h-full w-${isMobile ? 'full' : '3/4'} flex flex-col justify-center items-center`}>
       <Image src={post?.capa.url} alt={post?.titulo} width={1080} height={1080} className={`${isMobile ? 'w-full h-full' : 'h-[45rem] w-[45rem]'} object-cover`} />
       <h1 className=''>{post?.titulo}</h1>
       <h2>{post?.descricao}</h2>
